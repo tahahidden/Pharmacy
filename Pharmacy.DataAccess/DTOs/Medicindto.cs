@@ -7,12 +7,8 @@ namespace Pharmacy.DataAccess.DTOs
 {
     public class Medicindto
     {
-        public string Name { get; set; }
-
-        public DateTime ExpirationDate { get; set; }
-
-        public int SupplyCount { get; set; }
-
+        public required string Name { get; set; }
         public long? Price { get; set; }
+        public int? WarningLevel { get; set; }
     }
 }

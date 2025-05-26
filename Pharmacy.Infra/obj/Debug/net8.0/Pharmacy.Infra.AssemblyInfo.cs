@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Pharmacy.Infra")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+20d739c8b19d66b877c696ef508587fc33808377")]
 [assembly: System.Reflection.AssemblyProductAttribute("Pharmacy.Infra")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Pharmacy.Infra")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -11,9 +11,9 @@ namespace Pharmacy.DataAccess.Services
     {
         Task<Medicine?> InsertAsync(Medicine medicine);
         Task<List<Medicine>> GetAllAsync();
-        Task<bool> DeleteAsync(Medicine medicine);
+        Task<bool> RemoveAsync(Medicine medicine);
         Task<bool> UpdateAsync(Medicine medicine);
-        Task<Medicine?> GetProductByIdAsync(int id);
+        Task<Medicine?> GetProductByIdAsync(long id);
     }
 
     public class MedicineService : IMedicineService
@@ -60,7 +60,7 @@ namespace Pharmacy.DataAccess.Services
             }
         }
 
-        public async Task<bool> DeleteAsync(Medicine medicine)
+        public async Task<bool> RemoveAsync(Medicine medicine)
         {
             try
             {
@@ -74,7 +74,7 @@ namespace Pharmacy.DataAccess.Services
             }
         }
 
-        public async Task<Medicine?> GetProductByIdAsync(int id)
+        public async Task<Medicine?> GetProductByIdAsync(long id)
         {
             return await _dbContext.Medicines.FindAsync(id);
         }
