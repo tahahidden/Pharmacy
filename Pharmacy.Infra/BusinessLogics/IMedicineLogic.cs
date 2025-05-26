@@ -9,7 +9,7 @@ namespace Pharmacy.Infra.BusinessLogics
 {
     public interface IMedicineLogic
     {
-
+        Task AddMedicineInventory(DateTime expirationDate);
     }
 
     public class MedicineLogic : IMedicineLogic
@@ -26,7 +26,12 @@ namespace Pharmacy.Infra.BusinessLogics
         {
             var medicinesInventory = await _medicineInventoryService.GetAllAsync();
 
-            
+
+        }
+
+        public async Task AddMedicineInventory(DateTime expirationDate)
+        {
+            var aa = 0;
         }
     }
 }

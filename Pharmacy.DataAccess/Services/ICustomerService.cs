@@ -13,7 +13,7 @@ namespace Pharmacy.DataAccess.Services
         Task<List<Customer>> GetAllAsync();
         Task<bool> RemoveAsync(Customer customer);
         Task<bool> UpdateAsync(Customer customer);
-        Task<Customer?> GetProductByIdAsync(long id);
+        Task<Customer?> GetByIdAsync(long id);
     }
 
     public class CustomerService : ICustomerService
@@ -51,7 +51,7 @@ namespace Pharmacy.DataAccess.Services
                 return false;
             }
         }
-        public async Task<Customer?> GetProductByIdAsync(long id)
+        public async Task<Customer?> GetByIdAsync(long id)
         {
             return await _dbContext.Customers.FindAsync(id);
         }

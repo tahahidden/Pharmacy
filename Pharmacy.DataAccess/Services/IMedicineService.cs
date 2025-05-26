@@ -13,7 +13,8 @@ namespace Pharmacy.DataAccess.Services
         Task<List<Medicine>> GetAllAsync();
         Task<bool> RemoveAsync(Medicine medicine);
         Task<bool> UpdateAsync(Medicine medicine);
-        Task<Medicine?> GetProductByIdAsync(long id);
+        Task<Medicine?> GetByIdAsync(long id);
+        Task<Medicine?> GetByNameAsync(string name);
     }
 
     public class MedicineService : IMedicineService
@@ -37,7 +38,7 @@ namespace Pharmacy.DataAccess.Services
             {
                 return null;
             }
-           
+
         }
 
         public async Task<List<Medicine>> GetAllAsync()
@@ -49,12 +50,12 @@ namespace Pharmacy.DataAccess.Services
         {
             try
             {
-              
+
                 _dbContext.Medicines.Update(medicine);
                 await _dbContext.SaveChangesAsync();
                 return true;
             }
-            catch 
+            catch
             {
                 return false;
             }
@@ -74,9 +75,14 @@ namespace Pharmacy.DataAccess.Services
             }
         }
 
-        public async Task<Medicine?> GetProductByIdAsync(long id)
+        public async Task<Medicine?> GetByIdAsync(long id)
         {
             return await _dbContext.Medicines.FindAsync(id);
+        }
+
+        public async Task<Medicine?> GetByNameAsync(string name)
+        {
+            return await _dbContext.Medicines.FirstOrDefaultAsync(o => o.Name == name);
         }
 
     }

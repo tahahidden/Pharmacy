@@ -7,6 +7,10 @@ namespace Pharmacy.Infra.BusinessLogics
 {
     public interface IShopLogic
     {
+
+    }
+    public class ShopLogic : IShopLogic
+    {
         
     }
 }

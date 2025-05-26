@@ -291,6 +291,19 @@
           }
         }
       },
+      "PersianDateTime.Core/2.0.5": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/PersianDateTime.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/PersianDateTime.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Pharmacy.DataAccess/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -770,6 +783,19 @@
         "postgresql.png"
       ]
     },
+    "PersianDateTime.Core/2.0.5": {
+      "sha512": "jZToOx++M7s0BA3kG3kDn8S15zof139Td8ISza0c6Q11bSs14rmpcXE/TA4agWjYMYnoCnevE7b8Ru5nFPMziA==",
+      "type": "package",
+      "path": "persiandatetime.core/2.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/PersianDateTime.Core.dll",
+        "lib/netstandard2.0/PersianDateTime.Core.xml",
+        "persiandatetime.core.2.0.5.nupkg.sha512",
+        "persiandatetime.core.nuspec"
+      ]
+    },
     "Pharmacy.DataAccess/1.0.0": {
       "type": "project",
       "path": "../Pharmacy.DataAccess/Pharmacy.DataAccess.csproj",
@@ -779,6 +805,7 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "Mapster >= 7.4.0",
+      "PersianDateTime.Core >= 2.0.5",
       "Pharmacy.DataAccess >= 1.0.0"
     ]
   },
@@ -831,6 +858,10 @@
           "Mapster": {
             "target": "Package",
             "version": "[7.4.0, )"
+          },
+          "PersianDateTime.Core": {
+            "target": "Package",
+            "version": "[2.0.5, )"
           }
         },
         "imports": [

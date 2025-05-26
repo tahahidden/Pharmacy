@@ -9,6 +9,7 @@
       "Pharmacy.Infra/1.0.0": {
         "dependencies": {
           "Mapster": "7.4.0",
+          "PersianDateTime.Core": "2.0.5",
           "Pharmacy.DataAccess": "1.0.0"
         },
         "runtime": {
@@ -194,6 +195,14 @@
           }
         }
       },
+      "PersianDateTime.Core/2.0.5": {
+        "runtime": {
+          "lib/netstandard2.0/PersianDateTime.Core.dll": {
+            "assemblyVersion": "2.0.5.0",
+            "fileVersion": "2.0.5.0"
+          }
+        }
+      },
       "Pharmacy.DataAccess/1.0.0": {
         "dependencies": {
           "Npgsql.EntityFrameworkCore.PostgreSQL": "8.0.4"
@@ -331,6 +340,13 @@
       "sha512": "sha512-/hHd9MqTRVDgIpsToCcxMDxZqla0HAQACiITkq1+L9J2hmHKV6lBAPlauF+dlNSfHpus7rrljWx4nAanKD6qAw==",
       "path": "npgsql.entityframeworkcore.postgresql/8.0.4",
       "hashPath": "npgsql.entityframeworkcore.postgresql.8.0.4.nupkg.sha512"
+    },
+    "PersianDateTime.Core/2.0.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jZToOx++M7s0BA3kG3kDn8S15zof139Td8ISza0c6Q11bSs14rmpcXE/TA4agWjYMYnoCnevE7b8Ru5nFPMziA==",
+      "path": "persiandatetime.core/2.0.5",
+      "hashPath": "persiandatetime.core.2.0.5.nupkg.sha512"
     },
     "Pharmacy.DataAccess/1.0.0": {
       "type": "project",

@@ -13,7 +13,8 @@ namespace Pharmacy.DataAccess.Services
         Task<List<Medicinesinventory>> GetAllAsync();
         Task<bool> RemoveAsync(Medicinesinventory medicinesinventory);
         Task<bool> UpdateAsync(Medicinesinventory medicinesinventory);
-        Task<Medicinesinventory?> GetProductByIdAsync(long id);
+        Task<Medicinesinventory?> GetByIdAsync(long id);
+        Task<Medicinesinventory?> GetByMedicineIdAndExpirationDate(long medicineId, DateTime expirationDate);
     }
 
     public class MedicineInventoryService : IMedicineInventoryService
@@ -51,7 +52,7 @@ namespace Pharmacy.DataAccess.Services
                 return false;
             }
         }
-        public async Task<Medicinesinventory?> GetProductByIdAsync(long id)
+        public async Task<Medicinesinventory?> GetByIdAsync(long id)
         {
             return await _dbContext.Medicinesinventories.FindAsync(id);
         }
@@ -74,6 +75,13 @@ namespace Pharmacy.DataAccess.Services
             {
                 return false;
             }
+        }
+
+        public async Task<Medicinesinventory?> GetByMedicineIdAndExpirationDate(long medicineId, DateTime expirationDate)
+        {
+            return await _dbContext.Medicinesinventories.FirstOrDefaultAsync(o => o.MedicineId == medicineId
+                && o.ExpirationDate.Year == expirationDate.Year && o.ExpirationDate.Month == expirationDate.Month
+                && o.ExpirationDate.Day == expirationDate.Day);
         }
     }
 }

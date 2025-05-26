@@ -13,7 +13,7 @@ namespace Pharmacy.DataAccess.Services
         Task<List<Shoppingcartitem>> GetAllAsync();
         Task<bool> RemoveAsync(Shoppingcartitem shoppingcartitem);
         Task<bool> UpdateAsync(Shoppingcartitem shoppingcartitem);
-        Task<Shoppingcartitem?> GetProductByIdAsync(long id);
+        Task<Shoppingcartitem?> GetByIdAsync(long id);
     }
 
     public class ShoppingCartItemService : IShoppingCartItemService
@@ -51,7 +51,7 @@ namespace Pharmacy.DataAccess.Services
                 return false;
             }
         }
-        public async Task<Shoppingcartitem?> GetProductByIdAsync(long id)
+        public async Task<Shoppingcartitem?> GetByIdAsync(long id)
         {
             return await _dbContext.Shoppingcartitems.FindAsync(id);
         }

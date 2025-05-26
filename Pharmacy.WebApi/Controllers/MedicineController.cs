@@ -42,10 +42,5 @@ namespace Pharmacy.WebApi.Controllers
             }
 
         }
-
-        public async Task GetWarnings()
-        {
-            
-        }
     }
 }

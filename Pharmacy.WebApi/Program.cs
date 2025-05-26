@@ -1,11 +1,26 @@
 using Microsoft.EntityFrameworkCore;
 using Pharmacy.DataAccess.Data;
+using Pharmacy.DataAccess.Services;
+using Pharmacy.Infra.BusinessLogics;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<PharmacyContext>(options =>
     options.UseNpgsql("Host=localhost;Port=5432;Database=mydb;Username=postgres;Password=yourpassword"));
 
+
+//register services
+builder.Services.AddScoped<IMedicineService, MedicineService>();
+builder.Services.AddScoped<ICustomerService, CustomerService>();
+builder.Services.AddScoped<IMedicineInventoryService, MedicineInventoryService>();
+builder.Services.AddScoped<IShoppingCartService, ShoppingCartService>();
+builder.Services.AddScoped<IShoppingCartItemService, ShoppingCartItemService>();
+builder.Services.AddScoped<IMedicineLogic, MedicineLogic>();
+builder.Services.AddScoped<IShopLogic, ShopLogic>();
+
+
+
+builder.Services.AddControllers();
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -29,7 +44,7 @@ var summaries = new[]
 
 app.MapGet("/weatherforecast", () =>
 {
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
+    var forecast = Enumerable.Range(1, 5).Select(index =>
         new WeatherForecast
         (
             DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
@@ -41,7 +56,11 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast")
 .WithOpenApi();
-
+app.UseRouting();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
 app.Run();
 
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
