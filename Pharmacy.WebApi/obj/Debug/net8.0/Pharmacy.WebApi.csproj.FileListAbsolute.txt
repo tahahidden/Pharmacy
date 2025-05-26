@@ -1,0 +1,7 @@
+/home/taha/Public/sources/Pharmacy/Pharmacy.WebApi/obj/Debug/net8.0/Pharmacy.WebApi.csproj.AssemblyReference.cache
+/home/taha/Public/sources/Pharmacy/Pharmacy.WebApi/obj/Debug/net8.0/Pharmacy.WebApi.GeneratedMSBuildEditorConfig.editorconfig
+/home/taha/Public/sources/Pharmacy/Pharmacy.WebApi/obj/Debug/net8.0/Pharmacy.WebApi.AssemblyInfoInputs.cache
+/home/taha/Public/sources/Pharmacy/Pharmacy.WebApi/obj/Debug/net8.0/Pharmacy.WebApi.AssemblyInfo.cs
+/home/taha/Public/sources/Pharmacy/Pharmacy.WebApi/obj/Debug/net8.0/Pharmacy.WebApi.csproj.CoreCompileInputs.cache
+/home/taha/Public/sources/Pharmacy/Pharmacy.WebApi/obj/Debug/net8.0/Pharmacy.WebApi.MvcApplicationPartsAssemblyInfo.cs
+/home/taha/Public/sources/Pharmacy/Pharmacy.WebApi/obj/Debug/net8.0/Pharmacy.WebApi.MvcApplicationPartsAssemblyInfo.cache
