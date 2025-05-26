@@ -11,7 +11,7 @@ using Pharmacy.DataAccess.Data;
 namespace Pharmacy.WebApi.Controllers
 {
     [ApiController]
-    [Route("api/[controller]/[action]")]
+    [Route("api/[controller]/")]
     public class MedicineController : ControllerBase
     {
         private readonly IMedicineService _medicineService;
@@ -20,13 +20,14 @@ namespace Pharmacy.WebApi.Controllers
         {
             _medicineService = medicineService;
         }
-
+        [HttpGet("GetAllMedicines")]
         public async Task<IActionResult> GetAllMedicines()
         {
             var medicines = await _medicineService.GetAllAsync();
             return Ok(medicines);
         }
 
+        [HttpPost("AddMedicine")]
         public async Task<IActionResult> AddMedicine([FromForm] Medicindto medicindto)
         {
             var medicineEntity = medicindto.Adapt<Medicine>();

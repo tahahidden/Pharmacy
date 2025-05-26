@@ -11,6 +11,9 @@ namespace Pharmacy.Infra.BusinessLogics
     }
     public class ShopLogic : IShopLogic
     {
-        
+        public async Task RegisterOrder()
+        {
+            
+        }
     }
 }

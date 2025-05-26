@@ -37,7 +37,7 @@ public partial class PharmacyContext : DbContext
 
             entity.ToTable("customers");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
+            entity.Property(e => e.Id).UseIdentityAlwaysColumn();
             entity.Property(e => e.FirstName).HasMaxLength(100);
             entity.Property(e => e.LastName).HasMaxLength(200);
             entity.Property(e => e.NationalCode).HasMaxLength(10);
@@ -49,7 +49,7 @@ public partial class PharmacyContext : DbContext
 
             entity.ToTable("medicine");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
+            entity.Property(e => e.Id).UseIdentityAlwaysColumn();
         });
 
         modelBuilder.Entity<Medicinesinventory>(entity =>
@@ -58,7 +58,7 @@ public partial class PharmacyContext : DbContext
 
             entity.ToTable("medicinesinventory");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
+            entity.Property(e => e.Id).UseIdentityAlwaysColumn();
             entity.Property(e => e.ExpirationDate).HasColumnType("timestamp without time zone");
 
             entity.HasOne(d => d.Medicine).WithMany(p => p.Medicinesinventories)
@@ -73,7 +73,7 @@ public partial class PharmacyContext : DbContext
 
             entity.ToTable("shoppingcart");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
+            entity.Property(e => e.Id).UseIdentityAlwaysColumn();
             entity.Property(e => e.CreationDate)
                 .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .HasColumnType("timestamp without time zone");
@@ -90,7 +90,7 @@ public partial class PharmacyContext : DbContext
 
             entity.ToTable("shoppingcartitems");
 
-            entity.Property(e => e.Id).ValueGeneratedNever();
+            entity.Property(e => e.Id).UseIdentityAlwaysColumn();
 
             entity.HasOne(d => d.Medicine).WithMany(p => p.Shoppingcartitems)
                 .HasForeignKey(d => d.MedicineId)

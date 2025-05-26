@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Mapster;
 using Microsoft.AspNetCore.Mvc;
+using Pharmacy.DataAccess.DTOs;
 using Pharmacy.DataAccess.Services;
 using Pharmacy.Infra.BusinessLogics;
 
@@ -24,15 +26,36 @@ namespace Pharmacy.WebApi.Controllers
             _medicineLogic = medicineLogic;
         }
 
-        [HttpGet("AddMedicineInventory")]
-        public async Task AddMedicineInventory(string expirationString, string medicineName, int count)
+        [HttpPost("AddMedicineInventory")]
+        public async Task<IActionResult> AddMedicineInventory(string expirationString, string medicineName, int count)
         {
-
             var medicine = await _medicineService.GetByNameAsync(medicineName);
-            var expirationPersianDate = PersianDateTime.Parse(expirationString);
-            await _medicineLogic.AddMedicineInventory(new DateTime());
-            //var medicineInventory = await _medicineInventoryService.
+            if (medicine != null)
+            {
+                var expirationPersianDate = PersianDateTime.Parse(expirationString);
+                var isAddInventorySuccess = await _medicineLogic.AddMedicineInventory(expirationPersianDate.ToDateTime(), medicine.Id, count);
+                if (isAddInventorySuccess)
+                    return Ok();
+                else return BadRequest();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
 
+        [HttpGet("GetLessMedicine")]
+        public async Task<IActionResult> GetLessMedicine()
+        {
+            var lessMedicines = await _medicineLogic.GetLessMedicine();
+            return Ok(lessMedicines);
+        }
+
+        [HttpGet("GetWarningsMedicine")]
+        public async Task<IActionResult> GetWarningsMedicine(int warn)
+        {
+            var warningMedicines = await _medicineLogic.GetWarningsMedicines(warn);
+            return Ok(warningMedicines);
         }
     }
 }
