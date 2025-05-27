@@ -14,6 +14,7 @@ namespace Pharmacy.DataAccess.Services
         Task<bool> RemoveAsync(Customer customer);
         Task<bool> UpdateAsync(Customer customer);
         Task<Customer?> GetByIdAsync(long id);
+        Task<Customer?> GetByNationalCodeASync(string nationalCode);
     }
 
     public class CustomerService : ICustomerService
@@ -74,6 +75,11 @@ namespace Pharmacy.DataAccess.Services
             {
                 return false;
             }
+        }
+
+        public async Task<Customer?> GetByNationalCodeASync(string nationalCode)
+        {
+            return await _dbContext.Customers.FirstOrDefaultAsync(o => o.NationalCode == nationalCode);
         }
     }
 }
