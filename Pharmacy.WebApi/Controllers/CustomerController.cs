@@ -20,7 +20,7 @@ namespace Pharmacy.WebApi.Controllers
             _customerService = customerService;
         }
 
-        [HttpPost("AddCustomer")]
+        [HttpPost]
         public async Task<IActionResult> AddCustomer([FromForm] Customerdto customerdto)
         {
             var customerEntity = customerdto.Adapt<Customer>();
@@ -30,7 +30,7 @@ namespace Pharmacy.WebApi.Controllers
             else return BadRequest();
         }
 
-        [HttpGet("GetAllCustomers")]
+        [HttpGet]
         public async Task<IActionResult> GetAllCustomers()
         {
             var customers = await _customerService.GetAllAsync();

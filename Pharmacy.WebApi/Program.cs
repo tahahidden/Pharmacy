@@ -1,7 +1,9 @@
+using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.EntityFrameworkCore;
 using Pharmacy.DataAccess.Data;
 using Pharmacy.DataAccess.Services;
 using Pharmacy.Infra.BusinessLogics;
+using Pharmacy.WebApi.WebFramework.Transform;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,7 +22,10 @@ builder.Services.AddScoped<IShopLogic, ShopLogic>();
 
 
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options =>
+{
+    options.Conventions.Add(new RouteTokenTransformerConvention(new KebabCaseParameterTransformer()));
+});
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

@@ -20,8 +20,8 @@ namespace Pharmacy.WebApi.Controllers
             _shopLogic = shopLogic;
             _customerService = customerService;
         }
-        [HttpPost("RegisterOrder")]
-        public async Task<IActionResult> RegisterOrder([FromBody] List<OrderItemdto> orderItemdtos, string nationalCode)
+        [HttpPost("[action]")]
+        public async Task<IActionResult> RegisterOrder([FromBody] List<OrderItemdto> orderItemdtos, [FromQuery(Name = "national-code")] string nationalCode)
         {
             var customer = await _customerService.GetByNationalCodeASync(nationalCode.Trim());
             if (customer != null)

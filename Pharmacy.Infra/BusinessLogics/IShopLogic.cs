@@ -44,12 +44,16 @@ namespace Pharmacy.Infra.BusinessLogics
                 var medicine = medicines.FirstOrDefault(o => o.Name == item.MedicineName);
                 if (medicine != null)
                 {
-                    shoppingCartItems.Add(new Shoppingcartitem
+                    var shoppingCartItem = new Shoppingcartitem
                     {
                         MedicineId = medicine.Id,
                         ShoppingCartId = shoppingCart.Id,
-                        
-                    });
+                        Count = item.ItemCount,
+                    };
+
+                    shoppingCartItem = await _shoppingCartItemService.InsertAsync(shoppingCartItem);
+                    
+                    
                 }
             }
 

@@ -26,8 +26,8 @@ namespace Pharmacy.WebApi.Controllers
             _medicineLogic = medicineLogic;
         }
 
-        [HttpPost("AddMedicineInventory")]
-        public async Task<IActionResult> AddMedicineInventory(string expirationString, string medicineName, int count)
+        [HttpPost("[action]")]
+        public async Task<IActionResult> AddMedicineInventory([FromQuery(Name = "expiration-string")] string expirationString,[FromQuery(Name = "medicine-name")] string medicineName, int count)
         {
             var medicine = await _medicineService.GetByNameAsync(medicineName);
             if (medicine != null)
@@ -44,14 +44,14 @@ namespace Pharmacy.WebApi.Controllers
             }
         }
 
-        [HttpGet("GetLessMedicine")]
+        [HttpGet("[action]")]
         public async Task<IActionResult> GetLessMedicine()
         {
             var lessMedicines = await _medicineLogic.GetLessMedicine();
             return Ok(lessMedicines);
         }
 
-        [HttpGet("GetWarningsMedicine")]
+        [HttpGet("[action]")]
         public async Task<IActionResult> GetWarningsMedicine(int warn)
         {
             var warningMedicines = await _medicineLogic.GetWarningsMedicines(warn);

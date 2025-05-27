@@ -20,14 +20,14 @@ namespace Pharmacy.WebApi.Controllers
         {
             _medicineService = medicineService;
         }
-        [HttpGet("GetAllMedicines")]
+        [HttpGet]
         public async Task<IActionResult> GetAllMedicines()
         {
             var medicines = await _medicineService.GetAllAsync();
             return Ok(medicines);
         }
 
-        [HttpPost("AddMedicine")]
+        [HttpPost()]
         public async Task<IActionResult> AddMedicine([FromForm] Medicindto medicindto)
         {
             var medicineEntity = medicindto.Adapt<Medicine>();

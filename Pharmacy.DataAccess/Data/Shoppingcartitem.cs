@@ -11,6 +11,8 @@ public partial class Shoppingcartitem
 
     public long MedicineId { get; set; }
 
+    public int Count { get; set; }
+
     public virtual Medicine Medicine { get; set; } = null!;
 
     public virtual Shoppingcart ShoppingCart { get; set; } = null!;
