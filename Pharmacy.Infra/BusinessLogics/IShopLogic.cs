@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Pharmacy.DataAccess.Data;
-using Pharmacy.DataAccess.DTOs;
+using Pharmacy.Infra.DTOs;
 using Pharmacy.DataAccess.Services;
 
 namespace Pharmacy.Infra.BusinessLogics

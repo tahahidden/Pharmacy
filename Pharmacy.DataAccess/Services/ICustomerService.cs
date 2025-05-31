@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Pharmacy.DataAccess.Data;
+using Pharmacy.DataAccess.Enums;
+using Pharmacy.DataAccess.Exceptions;
 
 namespace Pharmacy.DataAccess.Services
 {
@@ -33,9 +35,13 @@ namespace Pharmacy.DataAccess.Services
                 await _dbContext.SaveChangesAsync();
                 return customer;
             }
-            catch
+            catch (DbUpdateException ex)
             {
-                return null;
+                throw new DatabaseException(ex.Message, (int)ExceptionType.InsertItemToDatabase);
+            }
+            catch (Exception ex)
+            {
+                throw new DataAccessException(ex.Message, (int)ExceptionType.UnknownDataAccess);
             }
         }
 
@@ -47,9 +53,13 @@ namespace Pharmacy.DataAccess.Services
                 await _dbContext.SaveChangesAsync();
                 return true;
             }
-            catch
+            catch (DbUpdateException ex)
             {
-                return false;
+                throw new DatabaseException(ex.Message, (int)ExceptionType.InsertItemToDatabase);
+            }
+            catch (Exception ex)
+            {
+                throw new DataAccessException(ex.Message, (int)ExceptionType.UnknownDataAccess);
             }
         }
         public async Task<Customer?> GetByIdAsync(long id)
@@ -59,7 +69,19 @@ namespace Pharmacy.DataAccess.Services
 
         public async Task<List<Customer>> GetAllAsync()
         {
-            return await _dbContext.Customers.AsNoTracking().ToListAsync();
+            try
+            {
+                var customers = await _dbContext.Customers.AsNoTracking().ToListAsync();
+                return customers;
+            }
+            catch (DbUpdateException ex)
+            {
+                throw new DatabaseException(ex.Message, (int)ExceptionType.InsertItemToDatabase);
+            }
+            catch (Exception ex)
+            {
+                throw new DataAccessException(ex.Message, (int)ExceptionType.UnknownDataAccess);
+            }
         }
 
         public async Task<bool> UpdateAsync(Customer customer)
@@ -71,9 +93,13 @@ namespace Pharmacy.DataAccess.Services
                 await _dbContext.SaveChangesAsync();
                 return true;
             }
-            catch
+            catch (DbUpdateException ex)
             {
-                return false;
+                throw new DatabaseException(ex.Message, (int)ExceptionType.InsertItemToDatabase);
+            }
+            catch (Exception ex)
+            {
+                throw new DataAccessException(ex.Message, (int)ExceptionType.UnknownDataAccess);
             }
         }
 

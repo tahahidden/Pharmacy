@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Pharmacy.DataAccess.Data;
 
-namespace Pharmacy.DataAccess.DTOs
+namespace Pharmacy.Infra.DTOs
 {
     public class MedicinesInventory
     {

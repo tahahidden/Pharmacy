@@ -23,7 +23,7 @@ builder.Services.AddScoped<IShopLogic, ShopLogic>();
 
 
 builder.Services.AddControllers(options =>
-{
+{   //this is for kebab case
     options.Conventions.Add(new RouteTokenTransformerConvention(new KebabCaseParameterTransformer()));
 });
 // Add services to the container.

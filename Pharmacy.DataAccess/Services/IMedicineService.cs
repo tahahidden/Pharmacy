@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Pharmacy.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
+using Pharmacy.DataAccess.Exceptions;
+using Pharmacy.DataAccess.Enums;
 
 namespace Pharmacy.DataAccess.Services
 {
@@ -34,16 +36,27 @@ namespace Pharmacy.DataAccess.Services
                 await _dbContext.SaveChangesAsync();
                 return medicine;
             }
-            catch
+            catch (DbUpdateException ex)
             {
-                return null;
+                throw new DatabaseException(ex.Message, (int)ExceptionType.InsertItemToDatabase);
+            }
+            catch(Exception ex)
+            {
+                throw new DataAccessException(ex.Message, (int)ExceptionType.UnknownDataAccess);
             }
 
         }
 
         public async Task<List<Medicine>> GetAllAsync()
         {
-            return await _dbContext.Medicines.AsNoTracking().ToListAsync();
+            try
+            {
+                return await _dbContext.Medicines.AsNoTracking().ToListAsync();
+            }
+            catch
+            {
+                throw new Exception("");
+            }
         }
 
         public async Task<bool> UpdateAsync(Medicine medicine)
@@ -77,7 +90,10 @@ namespace Pharmacy.DataAccess.Services
 
         public async Task<Medicine?> GetByIdAsync(long id)
         {
-            return await _dbContext.Medicines.FindAsync(id);
+            var med = await _dbContext.Medicines.FindAsync(id);
+            if (med == null)
+                throw new NotFoundException("item not found", (int)ExceptionType.ItemNotFound);
+            return med;
         }
 
         public async Task<Medicine?> GetByNameAsync(string name)

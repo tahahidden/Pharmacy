@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Mapster;
 using Microsoft.AspNetCore.Mvc;
-using Pharmacy.DataAccess.DTOs;
+using Pharmacy.Infra.DTOs;
 using Pharmacy.DataAccess.Services;
 using Pharmacy.Infra.BusinessLogics;
 
