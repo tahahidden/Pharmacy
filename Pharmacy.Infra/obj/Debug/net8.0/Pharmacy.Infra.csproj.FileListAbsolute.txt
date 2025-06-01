@@ -8,6 +8,7 @@
 /home/taha/Public/sources/Pharmacy/Pharmacy.Infra/obj/Debug/net8.0/Pharmacy.Infra.AssemblyInfoInputs.cache
 /home/taha/Public/sources/Pharmacy/Pharmacy.Infra/obj/Debug/net8.0/Pharmacy.Infra.AssemblyInfo.cs
 /home/taha/Public/sources/Pharmacy/Pharmacy.Infra/obj/Debug/net8.0/Pharmacy.Infra.csproj.CoreCompileInputs.cache
+/home/taha/Public/sources/Pharmacy/Pharmacy.Infra/obj/Debug/net8.0/Pharmacy.Infra.sourcelink.json
 /home/taha/Public/sources/Pharmacy/Pharmacy.Infra/obj/Debug/net8.0/Pharmacy.FD446777.Up2Date
 /home/taha/Public/sources/Pharmacy/Pharmacy.Infra/obj/Debug/net8.0/Pharmacy.Infra.dll
 /home/taha/Public/sources/Pharmacy/Pharmacy.Infra/obj/Debug/net8.0/refint/Pharmacy.Infra.dll

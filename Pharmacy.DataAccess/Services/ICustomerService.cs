@@ -64,7 +64,19 @@ namespace Pharmacy.DataAccess.Services
         }
         public async Task<Customer?> GetByIdAsync(long id)
         {
-            return await _dbContext.Customers.FindAsync(id);
+            try
+            {
+                var customer = await _dbContext.Customers.FindAsync(id);
+                return customer;
+            }
+            catch (DbUpdateException ex)
+            {
+                throw new DatabaseException(ex.Message, (int)ExceptionType.InsertItemToDatabase);
+            }
+            catch (Exception ex)
+            {
+                throw new DataAccessException(ex.Message, (int)ExceptionType.UnknownDataAccess);
+            }
         }
 
         public async Task<List<Customer>> GetAllAsync()
@@ -88,7 +100,6 @@ namespace Pharmacy.DataAccess.Services
         {
             try
             {
-
                 _dbContext.Customers.Update(customer);
                 await _dbContext.SaveChangesAsync();
                 return true;
@@ -105,7 +116,20 @@ namespace Pharmacy.DataAccess.Services
 
         public async Task<Customer?> GetByNationalCodeASync(string nationalCode)
         {
-            return await _dbContext.Customers.FirstOrDefaultAsync(o => o.NationalCode == nationalCode);
+            try
+            {
+                var customer = await _dbContext.Customers.FirstOrDefaultAsync(o => o.NationalCode == nationalCode);
+                return customer;
+
+            }
+            catch (DbUpdateException ex)
+            {
+                throw new DatabaseException(ex.Message, (int)ExceptionType.InsertItemToDatabase);
+            }
+            catch (Exception ex)
+            {
+                throw new DataAccessException(ex.Message, (int)ExceptionType.UnknownDataAccess);
+            }
         }
     }
 }

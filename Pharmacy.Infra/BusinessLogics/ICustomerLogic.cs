@@ -38,15 +38,5 @@ namespace Pharmacy.Infra.BusinessLogics
                 throw new InfraException(ex.Message, (int)ExceptionType.UnknownInfra);
             }
         }
-
-        public async Task DeleteCustomer()
-        {
-
-        }
-
-        public async Task GetAllCustomer()
-        {
-            
-        }
     }
 }

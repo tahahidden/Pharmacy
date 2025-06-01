@@ -41,27 +41,51 @@ namespace Pharmacy.WebApi.Controllers
             }
             catch (DatabaseException ex)
             {
-                return StatusCode(404, ex.Message);
+                return StatusCode(500, ex.Message);
             }
             catch (DataAccessException ex)
             {
-                return StatusCode(404, ex.Message);
+                return StatusCode(400, ex.Message);
             }
             catch (InfraException ex)
             {
-                return StatusCode(404, ex.Message);
+                return StatusCode(400, ex.Message);
             }
             catch (Exception ex)
             {
-                return StatusCode(404, ex.Message);
+                return StatusCode(400, ex.Message);
             }
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAllCustomers()
         {
-            var customers = await _customerService.GetAllAsync();
-            return Ok(customers);
+            try
+            {
+                var customers = await _customerService.GetAllAsync();
+                return Ok(customers);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (DatabaseException ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+            catch (DataAccessException ex)
+            {
+                return StatusCode(400, ex.Message);
+            }
+            catch (InfraException ex)
+            {
+                return StatusCode(400, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(400, ex.Message);
+            }
+
         }
     }
 }

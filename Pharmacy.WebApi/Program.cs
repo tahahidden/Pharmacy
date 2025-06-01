@@ -19,6 +19,8 @@ builder.Services.AddScoped<IShoppingCartService, ShoppingCartService>();
 builder.Services.AddScoped<IShoppingCartItemService, ShoppingCartItemService>();
 builder.Services.AddScoped<IMedicineLogic, MedicineLogic>();
 builder.Services.AddScoped<IShopLogic, ShopLogic>();
+builder.Services.AddScoped<ICustomerLogic, CustomerLogic>();
+
 
 
 

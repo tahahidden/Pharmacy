@@ -1,0 +1,15 @@
+/home/taha/Public/sources/Pharmacy/Pharmacy.DataAccess/bin/Debug/net8.0/Pharmacy.DataAccess.deps.json
+/home/taha/Public/sources/Pharmacy/Pharmacy.DataAccess/bin/Debug/net8.0/Pharmacy.DataAccess.runtimeconfig.json
+/home/taha/Public/sources/Pharmacy/Pharmacy.DataAccess/bin/Debug/net8.0/Pharmacy.DataAccess.dll
+/home/taha/Public/sources/Pharmacy/Pharmacy.DataAccess/bin/Debug/net8.0/Pharmacy.DataAccess.pdb
+/home/taha/Public/sources/Pharmacy/Pharmacy.DataAccess/obj/Debug/net8.0/Pharmacy.DataAccess.csproj.AssemblyReference.cache
+/home/taha/Public/sources/Pharmacy/Pharmacy.DataAccess/obj/Debug/net8.0/Pharmacy.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+/home/taha/Public/sources/Pharmacy/Pharmacy.DataAccess/obj/Debug/net8.0/Pharmacy.DataAccess.AssemblyInfoInputs.cache
+/home/taha/Public/sources/Pharmacy/Pharmacy.DataAccess/obj/Debug/net8.0/Pharmacy.DataAccess.AssemblyInfo.cs
+/home/taha/Public/sources/Pharmacy/Pharmacy.DataAccess/obj/Debug/net8.0/Pharmacy.DataAccess.csproj.CoreCompileInputs.cache
+/home/taha/Public/sources/Pharmacy/Pharmacy.DataAccess/obj/Debug/net8.0/Pharmacy.DataAccess.sourcelink.json
+/home/taha/Public/sources/Pharmacy/Pharmacy.DataAccess/obj/Debug/net8.0/Pharmacy.DataAccess.dll
+/home/taha/Public/sources/Pharmacy/Pharmacy.DataAccess/obj/Debug/net8.0/refint/Pharmacy.DataAccess.dll
+/home/taha/Public/sources/Pharmacy/Pharmacy.DataAccess/obj/Debug/net8.0/Pharmacy.DataAccess.pdb
+/home/taha/Public/sources/Pharmacy/Pharmacy.DataAccess/obj/Debug/net8.0/Pharmacy.DataAccess.genruntimeconfig.cache
+/home/taha/Public/sources/Pharmacy/Pharmacy.DataAccess/obj/Debug/net8.0/ref/Pharmacy.DataAccess.dll

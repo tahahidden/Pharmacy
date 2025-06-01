@@ -28,8 +28,31 @@ namespace Pharmacy.WebApi.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllMedicines()
         {
-            var medicines = await _medicineService.GetAllAsync();
-            return Ok(medicines);
+            try
+            {
+                var medicines = await _medicineLogic.GetAllMedicines();
+                return Ok(medicines);
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (DatabaseException ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+            catch (DataAccessException ex)
+            {
+                return StatusCode(400, ex.Message);
+            }
+            catch (InfraException ex)
+            {
+                return StatusCode(400, ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(400, ex.Message);
+            }
         }
 
         [HttpPost()]
@@ -43,9 +66,25 @@ namespace Pharmacy.WebApi.Controllers
                 return Ok(medicineEntity);
 
             }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (DatabaseException ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+            catch (DataAccessException ex)
+            {
+                return StatusCode(400, ex.Message);
+            }
+            catch (InfraException ex)
+            {
+                return StatusCode(400, ex.Message);
+            }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(400, ex.Message);
             }
 
         }
@@ -62,18 +101,21 @@ namespace Pharmacy.WebApi.Controllers
             {
                 return NotFound(ex.Message);
             }
-             catch (DatabaseException ex)
+            catch (DatabaseException ex)
             {
-                return StatusCode(404, ex.Message);
-            } catch (DataAccessException ex)
+                return StatusCode(500, ex.Message);
+            }
+            catch (DataAccessException ex)
             {
-                return StatusCode(404, ex.Message);
-            } catch (InfraException ex)
+                return StatusCode(400, ex.Message);
+            }
+            catch (InfraException ex)
             {
-                return StatusCode(404, ex.Message);
-            } catch (Exception ex)
+                return StatusCode(400, ex.Message);
+            }
+            catch (Exception ex)
             {
-                return StatusCode(404, ex.Message);
+                return StatusCode(400, ex.Message);
             }
         }
     }

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Pharmacy.DataAccess")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9e0428a057410b2f3f06e5564bcb4cdb02ffbc2c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9aa7ed792a0112c657c20f9b42463e098e13791d")]
 [assembly: System.Reflection.AssemblyProductAttribute("Pharmacy.DataAccess")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Pharmacy.DataAccess")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -18,6 +18,7 @@ namespace Pharmacy.Infra.BusinessLogics
         Task<List<Medicine>> GetWarningsMedicines(int warn);
         Task<List<Medicine>> GetLessMedicine();
         Task<Medicine> AddMedicine(Medicindto medicinedto);
+        Task<List<Medicine>> GetAllMedicines();
     }
 
     public class MedicineLogic : IMedicineLogic
@@ -37,22 +38,32 @@ namespace Pharmacy.Infra.BusinessLogics
                 var medicineEntity = medicinedto.Adapt<Medicine>();
                 medicineEntity = await _medicineService.InsertAsync(medicineEntity);
                 if (medicineEntity == null)
-                    throw new ApplicationException("khata");
-
+                    throw new Exception("save failed");
                 return medicineEntity;
-
-            }
-            catch (DatabaseException)
-            {
-                throw;
-            }
-            catch (DataAccessException)
-            {
-                throw;
             }
             catch (Exception ex)
             {
-                throw new InfraException(ex.Message,(int)ExceptionType.UnknownInfra);
+                throw new InfraException(ex.Message, (int)ExceptionType.UnknownInfra);
+            }
+        }
+
+        // public async Task<bool> EditMedicine(long medicineId, Medicindto medicindto)
+        // {
+        //     var medicineEntity = await _medicineService.GetByIdAsync(long medicineId);
+        //     var medicine
+            
+        // }
+
+        public async Task<List<Medicine>> GetAllMedicines()
+        {
+            try
+            {
+                var medicines = await _medicineService.GetAllAsync();
+                return medicines;
+            }
+            catch (Exception ex)
+            {
+                throw new InfraException(ex.Message, (int)ExceptionType.UnknownInfra);
             }
         }
 
